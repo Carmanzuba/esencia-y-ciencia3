@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esencia y Ciencia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f0f5f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #0b3d0b;
+      color: #e0f5e0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background-color: #145214;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1em;
+      padding: 15px 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover {
+      background-color: #0b3d0b;
+    }
+
+    .section {
+      display: none;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #0b3d0b;
+    }
+
+    .formulario input, .formulario textarea, .formulario select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .formulario button {
+      background-color: #145214;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .formulario button:hover {
+      background-color: #0b3d0b;
+    }
+
+    footer {
+      background-color: #0b3d0b;
+      color: #e0f5e0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Esencia y Ciencia</h1>
+  </header>
+
+  <nav>
+    <button onclick="mostrarSeccion('quienes')">Quiénes Somos</button>
+    <button onclick="mostrarSeccion('productos')">Nuestros Productos</button>
+    <button onclick="mostrarSeccion('cursos')">Nuestros Cursos</button>
+    <button onclick="mostrarSeccion('servicios')">Nuestros Servicios</button>
+    <button onclick="mostrarSeccion('tienda')">Tienda Online</button>
+    <button onclick="mostrarSeccion('contacto')">Contacto</button>
+  </nav>
+
+  <section id="quienes" class="section active">
+    <h2>Quiénes Somos</h2>
+    <p>Somos una empresa comprometida con la salud y el bienestar natural, impartiendo conocimientos y experiencias en el uso y tratamientos con plantas medicinales. Enseñamos diversas formas de uso, tratamientos para procesarlas, incluyendo la destilación de aceites esenciales y elaboración de tinturas. También abordamos la cosmética natural, jabones artesanales, cultivos, huertos urbanos y más. Compartimos vivencias que pueden llevar a una sanación integral, especialmente en temas emocionales.</p>
+    <h3>Misión</h3>
+    <p>Difundir el conocimiento sobre la medicina natural y el bienestar holístico, brindando herramientas prácticas para mejorar la salud, armonizar cuerpo y espíritu, y conectar con la naturaleza.</p>
+    <h3>Visión</h3>
+    <p>Ser un referente en educación y productos naturales, promoviendo un estilo de vida saludable y consciente basado en la ciencia y la tradición herbolaria.</p>
+  </section>
+
+  <section id="productos" class="section">
+    <h2>Nuestros Productos</h2>
+    <p>Descubre nuestros extractos naturales, aceites esenciales, tinturas, productos de cosmética natural, jabones artesanales, y más. Todos elaborados con amor, ciencia y respeto por la naturaleza.</p>
+  </section>
+
+  <section id="cursos" class="section">
+    <h2>Nuestros Cursos</h2>
+    <p>Aprende con nosotros a transformar tu entorno y tu salud. Ofrecemos cursos sobre uso de plantas medicinales, destilación, cosmética natural, elaboración de jabones, cultivo de huertos y mucho más.</p>
+  </section>
+
+  <section id="servicios" class="section">
+    <h2>Nuestros Servicios</h2>
+    <p>Te acompañamos con asesorías personalizadas, talleres prácticos, diseño de huertos medicinales, y experiencias de conexión con la naturaleza.</p>
+  </section>
+
+  <section id="tienda" class="section">
+    <h2>Tienda Online</h2>
+    <p>Muy pronto podrás adquirir todos nuestros productos directamente desde esta plataforma. ¡Estamos trabajando en ello!</p>
+  </section>
+
+  <section id="contacto" class="section">
+    <h2>Contáctanos</h2>
+    <p>Déjanos tus datos para mantenerte informado sobre nuevos cursos, productos y experiencias únicas.</p>
+    <form class="formulario" onsubmit="enviarFormulario(event)">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" required>
+
+      <label for="fecha">Elige una fecha para tu curso:</label>
+      <input type="date" id="fecha" required>
+
+      <label for="mensaje">Mensaje o intereses:</label>
+      <textarea id="mensaje" rows="4"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Esencia y Ciencia · Todos los derechos reservados
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    function enviarFormulario(event) {
+      event.preventDefault();
+      alert("¡Gracias por contactarnos! Pronto nos comunicaremos contigo.");
+      document.querySelector('.formulario').reset();
+    }
+  </script>
+</body>
+</html>
